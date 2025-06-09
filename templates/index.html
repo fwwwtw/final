@@ -1,1 +1,16 @@
-templates/index.html
+<!doctype html>
+<html>
+<head>
+    <title>可編輯腳本列表</title>
+</head>
+<body>
+    <h2>選擇要編輯或執行的腳本</h2>
+    <ul>
+    {% for script in scripts %}
+        <li>
+            <a href="{{ url_for('edit', script=script) }}">{{ script }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

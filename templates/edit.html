@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <title>編輯 {{ script }}</title>
+</head>
+<body>
+    <h2>編輯 {{ script }}</h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul style="color:red">{% for msg in messages %}<li>{{ msg }}</li>{% endfor %}</ul>
+      {% endif %}
+    {% endwith %}
+    <form method="post">
+        <textarea name="code" style="width:90vw; height:60vh">{{ code }}</textarea><br>
+        <button type="submit">儲存</button>
+    </form>
+    <form action="{{ url_for('run_script', script=script) }}" method="post" style="margin-top:10px">
+        <button type="submit">執行</button>
+    </form>
+    <a href="{{ url_for('index') }}">返回</a>
+</body>
+</html>

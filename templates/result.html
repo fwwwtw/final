@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+    <title>執行結果 - {{ script }}</title>
+</head>
+<body>
+    <h2>{{ script }} 執行結果</h2>
+    <pre style="background:#eee;padding:10px">{{ output }}</pre>
+    <a href="{{ url_for('edit', script=script) }}">返回編輯</a>　
+    <a href="{{ url_for('index') }}">主選單</a>
+</body>
+</html>
