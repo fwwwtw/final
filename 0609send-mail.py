@@ -12,7 +12,7 @@ smtp_server = "smtp.gmail.com"
 smtp_port = 465
 sender_email = "fafa0130@gmail.com"  # ngshs01@gmail.com
 app_password = "wxgn nlwn qolk fwmg"  # 請改成你自己的應用程式密碼 vvgy txxr bqcc nyox
-receiver_email = "m11382014@gm2.nutn.edu.tw"
+receiver_email = "fafa0130@gm2.nutn.edu.tw"
 
 # 加入 HTML 內容，cid 對應圖片
 html = '''
@@ -34,7 +34,7 @@ with open('meow_party.gif', 'rb') as f:
     msg.attach(inline_img)
 
 # 使用 python 內建的 open 方法開啟指定目錄下的檔案
-with open(r'C:\Users\yc\Pictures\ID\meow_party.gif', 'rb') as file:
+with open('meow_party.gif', 'rb') as file:
     img = file.read()
 attach_file = MIMEApplication(img, Name='meow_party.gif')  # 設定附加檔案圖片
 msg.attach(attach_file)
@@ -50,4 +50,4 @@ smtp.login('fafa0130@gmail.com', 'wxgn nlwn qolk fwmg')
 status = smtp.send_message(msg)
 print(status)
 smtp.quit()
-print('✔️郵件已寄出')
+print('✔️郵件已寄出到fafa0130@gmail.com')
