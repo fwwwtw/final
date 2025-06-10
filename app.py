@@ -17,9 +17,9 @@ def index():
         action = request.form.get('action')
         script_map = {
             'currency': 'currency-rate.py',
-            'invoice': 'invoice_check.py',
+            #'invoice': 'invoice_check.py',
             'tsmc': 'tsmc.py',
-            'cctv': 'cctv.py',
+            #'cctv': 'cctv.py',
             'mail': '0609send-mail.py'
         }
         script = script_map.get(action)
