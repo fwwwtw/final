@@ -1,16 +1,48 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-    <title>可編輯腳本列表</title>
+    <meta charset="UTF-8">
+    <title>期末專題功能面板</title>
+    <style>
+        body { font-family: "微軟正黑體", sans-serif; background: #f2f2f2; text-align: center;}
+        h1 { margin: 32px 0; }
+        .menu-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            margin: 20px 20px;
+            font-size: 1.3em;
+            background: #2980b9;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .menu-btn:hover { background: #27ae60; }
+        .result-box { margin: 2em auto; width: 90%; max-width: 700px; background: #fff; border-radius: 8px; padding: 1.5em; box-shadow: 0 2px 8px #aaa; text-align: left;}
+        .warn { color: #e67e22; }
+    </style>
 </head>
 <body>
-    <h2>選擇要編輯或執行的腳本</h2>
-    <ul>
-    {% for script in scripts %}
-        <li>
-            <a href="{{ url_for('edit', script=script) }}">{{ script }}</a>
-        </li>
-    {% endfor %}
-    </ul>
+    <h1>📋 期末專題整合系統</h1>
+    <form method="post">
+        <button name="action" value="currency" class="menu-btn">查詢台幣匯率</button>
+        <button name="action" value="invoice" class="menu-btn">發票對獎</button>
+        <button name="action" value="tsmc" class="menu-btn">查詢台積電股價</button>
+        <button name="action" value="cctv" class="menu-btn">台南即時 CCTV</button>
+        <button name="action" value="mail" class="menu-btn">寄送 Email（含附件/內嵌圖片）</button>
+    </form>
+    {% if output %}
+    <div class="result-box">
+        <h3>執行結果</h3>
+        <pre>{{ output }}</pre>
+    </div>
+    {% endif %}
+    {% if cctv_info %}
+    <div class="result-box warn">
+        <h3>⚠️ 注意</h3>
+        <p>{{ cctv_info }}</p>
+    </div>
+    {% endif %}
 </body>
 </html>
