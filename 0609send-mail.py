@@ -26,7 +26,7 @@ msg = MIMEMultipart('related')  # 重點：用 related 才能插入圖片
 msg.attach(MIMEText(html, 'html', 'utf-8'))  # 加入 HTML 內容
 
 # 內嵌圖片（inline）
-with open(r'C:\Users\yc\Pictures\ID\meow_party.gif', 'rb') as f:
+with open('meow_party.gif', 'rb') as f:
     img_data = f.read()
     inline_img = MIMEImage(img_data)
     inline_img.add_header('Content-ID', '<meow_party>')
