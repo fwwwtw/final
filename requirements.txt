@@ -1,2 +1,6 @@
 Flask
 gunicorn
+requests
+bs4
+opencv-python
+email
